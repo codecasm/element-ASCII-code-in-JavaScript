@@ -1,0 +1,175 @@
+<html>
+	<head>
+		<title>Character code</title>
+		<style>
+			*{
+				padding:0px;
+				margin:0px;
+			}
+			#page{
+				width:80%;
+				margin:auto;
+				background:#9BF3DF;
+				height:auto;
+			}
+			h1{
+				font-size:32px;
+				background:#B94C0A;
+				color:#fff;
+				text-align:center;
+				padding:10px;
+			}
+			hr{
+				border:1px inset #4F1411;
+				margin:2px;
+			}
+			th{
+				background:#333;
+				color:#fff;
+				width:80px;
+			}
+			td{
+				background:#2DF39F;
+				width:80px;
+				text-align:center;
+			}
+			.form-search{
+				background:#14AFAF;
+				color:#fff;
+				width:20%;
+				float:left;
+				margin:2px;
+				padding:20px;
+			}
+			input{
+				padding:5px;
+				border-radius:5px;
+				margin:2px;
+			}
+			#searched{
+				height:180px;
+				padding:30px;
+			}
+			#searched table td{
+				font-size:60px;
+				font-weight:900;
+				width:300px;
+			}
+			#info{
+				background:#2695C1;
+				color:#fff;
+				width:20%;
+				margin:2px;
+				padding:20px;
+				float:right;
+			}
+			.error{
+				color:#f00;
+				font-size:20px;
+				text-align:center;
+			}
+			footer{
+				background:#222;
+				color:#fff;
+				padding:2px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="page">
+		<h1>Characters and their value : </h1>
+		<hr>
+		<div class="form-search">
+			<label><u>Search by :</u> </label><br>
+			<input type="radio" name="search" checked onclick="scb()"> Code<br>
+			<input type="radio" name="search" onclick="schb()"> Character<br>
+			<input type="radio" name="search" onclick="srb()"> Range<br>
+			<hr>
+			<div id="codeblock" style="display:block">
+				<label>Enter code : (don't write &#)</label>
+				<input type="number" min=0 id="content" onchange="showChar()">
+				<input type="submit" name="submit" onclick="showChar()">
+				<input type="Reset" name="reset">
+			</div>
+			<div id="characterblock" style="display:none">
+				<label>Enter character : </label>
+				<input type="text" id="content">
+				<input type="submit" name="submit" onclick="error()">
+				<input type="Reset" name="reset">
+			</div>
+			<div id="rangeblock" style="display:none">
+				<label>Enter Range : </label>
+				<input type="text" id="content">
+				<input type="submit" name="submit" onclick="error()">
+				<input type="Reset" name="reset">
+			</div>
+		</div>
+
+		<div id="searched">
+			<table>
+			<tr><td>Character : </td><td><span id="char"></span></td></tr>
+			<tr><td>Code : </td><td><span id="code"></span></td></tr>
+			</table>
+		</div>
+
+		<!--
+		<table>
+		<tr><th>Char</th><th>Code</th></tr>
+		<script>
+			for(var i=0;i<15;i++)
+			{
+				document.write("<tr><td>&#"+i+"</td>");
+				document.write("<td>&&#35;"+i+";</td></tr>");
+			}
+		</script>
+		</table>
+		
+
+		<div id="info">
+		</div>
+		-->
+
+		
+			<p class="error">
+				NOTE : Some functionalities may not work as this application is under development.
+			</p>
+
+		<footer>
+			<p>
+				&copy; 2017 | All rights reserved.
+			</p>
+		</footer>
+
+		
+		<script>
+			var showChar=function()
+			{
+				var n=document.getElementById("content").value;
+				//alert(n);
+					document.getElementById("char").innerHTML="&#"+n;
+					document.getElementById("code").innerHTML="&&#35;"+n+";";
+			}
+
+			function error(){
+				alert("Abe chutiya, Haramkhor.. Niche red me padh na kya likha hai?");
+			}
+
+			function scb(){
+				document.getElementById("codeblock").style.display="block";
+				document.getElementById("characterblock").style.display="none";
+				document.getElementById("rangeblock").style.display="none";
+			}
+			function schb(){
+				document.getElementById("codeblock").style.display="none";
+				document.getElementById("characterblock").style.display="block";
+				document.getElementById("rangeblock").style.display="none";
+			}
+			function schb(){
+				document.getElementById("codeblock").style.display="none";
+				document.getElementById("characterblock").style.display="none";
+				document.getElementById("rangeblock").style.display="block";
+			}
+		</script>
+		</div>
+	</body>
+</html>
