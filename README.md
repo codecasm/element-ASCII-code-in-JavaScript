@@ -1,4 +1,4 @@
-# elementcode
+# element ASCII code in JavaScript
 
 Here the element refers to the character and code refers to the ASCII code of the Characters.<br>
 This simple HTML and JavaScript Page lets you immediately know what ASCII code is assigned to what character on the go.<br>
